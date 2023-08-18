@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(process.env.MONGODB_URI);
+    console.log(process.env);
     
   }
 }
