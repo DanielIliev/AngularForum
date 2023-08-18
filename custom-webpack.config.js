@@ -7,8 +7,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        MONGO_URI: JSON.stringify(dotenv.parsed),
-        TEST: process.env
+        MONGO_URI: JSON.stringify(dotenv.parsed)
       }
     })
   ]
