@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MONGODB_URI } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(process.env);
-    
+    console.log(MONGODB_URI);    
   }
 }

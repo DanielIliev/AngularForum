@@ -7,7 +7,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        MONGO_URI: JSON.stringify(dotenv)
+        data: JSON.stringify(dotenv.MONGODB_URI)
       }
     })
   ]

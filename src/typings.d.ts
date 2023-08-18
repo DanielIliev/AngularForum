@@ -5,7 +5,7 @@ interface Process {
 }
 
 interface Env {
-    MONGODB_URI: string
+    data: string
 }
 
 interface GlobalEnvironment {
