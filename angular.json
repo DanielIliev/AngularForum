@@ -73,7 +73,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-builders/dev-server:generic",
+          "builder": "@angular-devkit/dev-server",
           "configurations": {
             "production": {
               "browserTarget": "forum-app:build:production"
