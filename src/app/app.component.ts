@@ -6,15 +6,11 @@ import { MONGODB_URI } from 'src/environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   active: boolean = false;
   title = 'forum-app';
 
   toggleIconAnimation() {
     this.active = !this.active;
-  }
-
-  ngOnInit(): void {
-    console.log(MONGODB_URI);    
   }
 }

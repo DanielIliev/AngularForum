@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+
+// Fetch environment variables from local env or Vercel env
 const dotenv = require('dotenv').config({ path: path.resolve(process.cwd(), '.env') }).parsed || process.env;
 
 
