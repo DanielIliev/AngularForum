@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MONGODB_URI } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',

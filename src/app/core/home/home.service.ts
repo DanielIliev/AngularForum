@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ENDPOINT } from 'src/environments/environment';
+import { SERVER_ENDPOINT } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,15 +9,15 @@ export class HomeService {
   constructor(private http: HttpClient) {}
 
   fetchData(): any {
-    const url = ENDPOINT + '/users';
+    const url = SERVER_ENDPOINT + '/posts';
 
-    const headers = {
-      'Content-Type': 'application/json',
-    };
+    // const headers = {
+    //   'Content-Type': 'application/json',
+    // };
 
-    console.log(headers);
+    // console.log(headers);
     
 
-    return this.http.get<any>(url, { headers });
+    return this.http.get<any>(url);
   }
 }
