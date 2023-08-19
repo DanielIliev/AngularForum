@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="addForm" (ngSubmit)="add($event)">
+      <fieldset>
+        <legend>Write down your post</legend>
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            formControlName="title"
+            maxlength="25"
+          />
+          <small
+            class="input-error-message"
+            *ngIf="title?.invalid && title?.touched"
+            >Title must be between 3 and 25 characters long</small
+          >
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Content</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="content"
+            formControlName="content"
+            maxlength="350"
+          ></textarea>
+          <small
+            class="input-error-message"
+            *ngIf="content?.invalid && content?.touched"
+            >Content must be between 10 and 350 characters long</small
+          >
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary float-end"
+          [disabled]="addForm.invalid"
+        >
+          Submit
+        </button>
+      </fieldset>
+    </form>
+  </div>
+</div>

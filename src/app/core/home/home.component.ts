@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from './home.service';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -7,16 +8,26 @@ import { HomeService } from './home.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private homeService: HomeService) {}
+  isLogged: boolean = false;
+  constructor(private router: Router, private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
-    this.homeService.fetchData().subscribe({
-      next: (response: any) => {
-        console.log(response);
-      },
-      error: (err: any) => {
-        console.log(err);
-      }
-    });
+    const token = this.localStorageService.get('authToken');
+
+    if (token !== null) {
+      this.isLogged = true;
+    }
+  }
+
+  goToPosts() {
+    this.router.navigate(['/board']);
+  }
+
+  goToAddPost() {
+    this.router.navigate(['/add']);
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }
