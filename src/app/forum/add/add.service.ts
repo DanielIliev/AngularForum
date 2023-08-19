@@ -14,7 +14,7 @@ export class AddService {
   ) {}
 
   addPost(data: PostForm) {
-    const url = baseUrl + '/add';
+    const url = baseUrl + '/posts/add';
     const token = this.localStorageService.get('authToken');
     const headers = {
       Authorization: `Bearer ${token}`,

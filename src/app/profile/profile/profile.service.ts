@@ -15,7 +15,7 @@ export class ProfileService {
   ) {}
 
   getProfilePosts(id: string): Observable<ProfilePosts[]> {
-    const url: string = `${baseUrl}profile/${id}`;
+    const url: string = `${baseUrl}/profile/${id}`;
     const token = this.localStorageService.get('authToken');
 
     const headers = {

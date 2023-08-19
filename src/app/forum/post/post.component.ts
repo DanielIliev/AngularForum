@@ -66,6 +66,7 @@ export class PostComponent implements OnInit {
     this.postService.fetchPost(this.postId).subscribe({
       next: (response) => {
         this.post = response;
+        
 
         if (this.userData._id === response.author) {
           this.isAuthor = true;

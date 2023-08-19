@@ -20,7 +20,7 @@ export class PostService {
   }
 
   deletePost(userId: string, postId: string) {
-    const url = `${baseUrl}delete/${userId}/${postId}`;
+    const url = `${baseUrl}/delete/${userId}/${postId}`;
     const token = String(this.localStorageService.get('authToken'));
 
     const headers = {
@@ -31,7 +31,7 @@ export class PostService {
   }
 
   addComment(id: string, data: Comment) {
-    const url = `${baseUrl}comment`;
+    const url = baseUrl + '/comment';
     const token = String(this.localStorageService.get('authToken'));
 
     const headers = {
