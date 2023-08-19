@@ -14,7 +14,7 @@ export class EditService {
   ) {}
 
   editPost(id: string, data: EditForm) {
-    const url = `${baseUrl}edit/${id}`;
+    const url = `${baseUrl}/edit/${id}`;
     const token = this.localStorageService.get('authToken');
 
     const headers = {

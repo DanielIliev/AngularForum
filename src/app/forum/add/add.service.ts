@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { baseUrl } from 'src/app/constants/constants';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { PostForm } from 'src/app/types/Post';
 
@@ -13,7 +14,7 @@ export class AddService {
   ) {}
 
   addPost(data: PostForm) {
-    const url = 'http://localhost:3000/posts/add';
+    const url = baseUrl + '/add';
     const token = this.localStorageService.get('authToken');
     const headers = {
       Authorization: `Bearer ${token}`,

@@ -10,12 +10,9 @@ export class RegisterService {
   constructor(private http: HttpClient) {}
 
   register(credentials: RegisterCredentials) {
+    const url = baseUrl + '/register';
     const headers = { 'Content-Type': 'application/json' };
 
-    return this.http.post(
-      `${baseUrl}register`,
-      { ...credentials },
-      { headers }
-    );
+    return this.http.post(url, { ...credentials }, { headers });
   }
 }

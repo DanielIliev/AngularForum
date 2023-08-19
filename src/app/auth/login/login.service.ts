@@ -10,10 +10,12 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(credentials: LoginCredentials) {
+    const url = baseUrl + '/login';
     const body = JSON.stringify(credentials);
+    const headers = {
+      'Content-Type': 'application/json',
+    };
 
-    return this.http.post(`${baseUrl}login`, body, {
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return this.http.post(url, body, { headers });
   }
 }

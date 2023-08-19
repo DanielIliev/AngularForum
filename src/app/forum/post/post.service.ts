@@ -14,7 +14,7 @@ export class PostService {
   ) {}
 
   fetchPost(id: string) {
-    const url = `${baseUrl}post/${id}`;
+    const url = `${baseUrl}/post/${id}`;
 
     return this.http.get<Post>(url);
   }

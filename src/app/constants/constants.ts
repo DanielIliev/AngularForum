@@ -1,3 +1,3 @@
-const baseUrl = 'https://angular-forum-server.onrender.com/';
+const baseUrl = 'https://angular-forum-server.onrender.com';
 
 export { baseUrl };
