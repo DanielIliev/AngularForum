@@ -4,10 +4,10 @@
       <div *ngIf="isLoading">
         <app-loader></app-loader>
       </div>
-      <legend>Login to your profile</legend>
       <div class="alert alert-danger" *ngIf="errorMessage" role="alert">
         {{ errorMessage }}
       </div>
+      <legend>Login to your profile</legend>
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input

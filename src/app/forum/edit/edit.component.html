@@ -6,10 +6,10 @@
     <div class="form-container">
       <form [formGroup]="editForm" (ngSubmit)="edit($event)">
         <fieldset>
-          <legend>Edit your post</legend>
           <div *ngIf="errorMessage" class="alert alert-danger">
             {{ errorMessage }}
           </div>
+          <legend>Edit your post</legend>
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input

@@ -5,10 +5,10 @@
         <div *ngIf="isLoading">
           <app-loader></app-loader>
         </div>
-        <legend>Write down your post</legend>
         <div *ngIf="errorMessage" class="alert alert-danger">
           {{ errorMessage }}
         </div>
+        <legend>Write down your post</legend>
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
