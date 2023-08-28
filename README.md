@@ -10,7 +10,7 @@
         - View all posts on the board
         - View post details and their related comments
         - Login to profile
-        - Register a new profile
+        - Register a new unique profile
 
     User
         - Access to the homepage
