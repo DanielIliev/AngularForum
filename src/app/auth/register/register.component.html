@@ -5,6 +5,9 @@
     class="register-form"
   >
     <fieldset>
+      <div *ngIf="isLoading">
+        <app-loader></app-loader>
+      </div>
       <legend>Register your profile</legend>
       <div class="alert alert-danger" *ngIf="errorMessage" role="alert">
         {{ errorMessage }}

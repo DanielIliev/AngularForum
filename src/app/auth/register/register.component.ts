@@ -22,6 +22,9 @@ export class RegisterComponent {
     repass: ['', [Validators.required]],
   });
 
+  isLoading: boolean = false;
+  errorMessage: string = '';
+
   // Getters for form fields
   get username() {
     return this.registerForm.get('username');
@@ -46,12 +49,13 @@ export class RegisterComponent {
     @Inject(WINDOW) private window: Window
   ) {}
 
-  errorMessage: string = '';
-
   register() {
     this.errorMessage = '';
+    this.isLoading = true;
+
     if (this.registerForm.invalid) {
       this.errorMessage = 'The form you have submitted is invalid';
+      this.isLoading = false;
       return;
     }
 
@@ -64,6 +68,7 @@ export class RegisterComponent {
         this.localStorageService.set('authToken', token);
         this.localStorageService.set('userData', JSON.stringify(userData));
         this.errorMessage = '';
+        this.isLoading = false;
       },
       error: (err) => {
         if (err.error.errors) {
@@ -74,6 +79,7 @@ export class RegisterComponent {
           this.errorMessage =
             'We are unable to register your profile at the moment, please try again later.';
         }
+        this.isLoading = false;
       },
       complete: () => {
         this.window.location.reload();

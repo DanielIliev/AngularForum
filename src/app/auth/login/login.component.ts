@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   });
 
   errorMessage: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -29,8 +30,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
+    this.isLoading = true;
+
     if (this.loginForm.invalid) {
       this.errorMessage = 'The form you have submitted is invalid!';
+      this.isLoading = false;
       return;
     }
 
@@ -43,6 +47,7 @@ export class LoginComponent implements OnInit {
         this.localStorageService.set('authToken', token);
         this.localStorageService.set('userData', JSON.stringify(userData));
         this.errorMessage = '';
+        this.isLoading = false;
       },
       error: (err) => {
         if (err.error.message) {
@@ -51,6 +56,7 @@ export class LoginComponent implements OnInit {
           this.errorMessage =
             'We are unable to log you in, please try again later';
         }
+        this.isLoading = false;
       },
       complete: () => {
         this.window.location.reload();

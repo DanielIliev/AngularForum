@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   profileSub: Subscription | undefined;
+  isLoading: boolean = true;
 
   profileInfo: ProfileInformation = {
     username: '',
@@ -23,9 +24,11 @@ export class ProfileComponent implements OnInit {
   profileObs: Observer<ProfilePosts[]> = {
     next: (response) => {
       this.profilePosts = response;
+      this.isLoading = false;
     },
     error: (err) => {
       console.log(err);
+      this.isLoading = false;
     },
     complete: () => {
       console.log('Done');

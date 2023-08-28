@@ -115,6 +115,7 @@ export class EditComponent implements OnInit {
 
   edit(event: Event) {
     event.preventDefault();
+    this.isLoading = true;
 
     if (this.editForm.invalid) {
       this.errorMessage = 'The form you have submitted is invalid';
@@ -126,12 +127,16 @@ export class EditComponent implements OnInit {
     this.errorMessage = '';
 
     this.editService.editPost(this.postId, data).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+      },
       error: (err) => {
         if (err.error.errors) {
           this.errorMessage = err.error.errors[0].msg;
         } else {
           this.errorMessage = err.message;
         }
+        this.isLoading = false;
       },
       complete: () => {
         this.router.navigate([`/post/${this.postId}`]);

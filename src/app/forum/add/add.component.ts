@@ -27,6 +27,7 @@ export class AddComponent {
   });
 
   errorMessage: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -45,9 +46,11 @@ export class AddComponent {
 
   add(event: Event): void {
     event.preventDefault();
+    this.isLoading = true;
 
     if (this.addForm.invalid) {
       this.errorMessage = 'The form you have submitted is invalid!';
+      this.isLoading = false;
       return;
     }
 
@@ -59,12 +62,16 @@ export class AddComponent {
     }
 
     this.addService.addPost(data).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+      },
       error: (err) => {
         if (err.error.errors) {
           this.errorMessage = err.error.errors[0].msg;
         } else {
           this.errorMessage = err.message;
         }
+        this.isLoading = false;
       },
       complete: () => {
         this.errorMessage = '';

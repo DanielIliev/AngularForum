@@ -4,6 +4,12 @@
   </div>
   <div *ngIf="isLoading">
     <app-loader></app-loader>
+    <div class="notifier">
+      <p>
+        Please be adviced that if this is your first time running the application it
+        may take some time for the content to load.
+      </p>
+    </div>
   </div>
   <div *ngIf="!isLoading">
     <div *ngIf="posts.length === 0">
