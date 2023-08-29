@@ -1,8 +1,10 @@
 # Angular forum application
     Simple forum application with user authentication and authorizations
+    Authentication and authorizations are performed with JWT / Bearer token approach
     Hosted with Vercel: https://angular-forum-danieliliev.vercel.app/
     Server source: https://github.com/DanielIliev/AngularForumServer
-    Disclaimer: The initial load time for the application is ~30 seconds required for the server start-up
+    Disclaimer: The initial load time for the data in the application is ~30 seconds,
+    which is the time required for the server to start.
 
 ## Functionalities
     Guest
